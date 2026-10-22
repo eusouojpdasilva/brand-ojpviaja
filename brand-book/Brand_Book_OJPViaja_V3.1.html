@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Book @ojpviaja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MARCA @ojpviaja · BRAND BOOK V3.1
+   Pra mudar uma cor ou fonte no Brand Book inteiro, troque aqui.
+   ============================================================ */
+:root {
+  /* Paleta oficial */
+  --preto: #0E0E0E;            /* Preto estrutural: fundos, autoridade e contraste */
+  --dourado: #C9A84C;          /* Dourado: acentos, números e direção visual */
+  --dourado-escuro: #8A6D24;   /* V3.1: texto pequeno dourado em fundo claro */
+  --offwhite: #F7F5F0;         /* Off-white: fundos claros e respiro */
+  --creme: #EDE8DF;            /* Creme: blocos secundários e apoio */
+  --base-anuncios: #0B0F14;    /* Base de anúncios: performance e mídia paga */
+  --amarelo-acao: #FFD84D;     /* Amarelo ação: CTA de anúncios */
+
+  /* Apoio de interface do documento */
+  --texto-claro: #1A1916;
+  --texto-suave: #6E6A63;
+  --texto-suave-escuro: #A29C91;
+  --hairline: #DEDAD2;
+  --hairline-escura: #2A2926;
+  --branco: #FFFFFF;
+
+  /* Tipografia */
+  --fonte-editorial: "Inter", system-ui, sans-serif;
+  --fonte-produto: "Montserrat", system-ui, sans-serif;
+  --fonte-humana: "Caveat", cursive;
+
+  /* Versão (aparece no rodapé de todas as páginas) */
+  --raio: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: #1F1E1B; }
+body {
+  font-family: var(--fonte-editorial);
+  color: var(--texto-claro);
+  background: #1F1E1B;
+  -webkit-font-smoothing: antialiased;
+  padding: 32px 0 64px;
+}
+img { display: block; max-width: 100%; }
+
+/* ---------- Página (cada slide do Brand Book) ---------- */
+.pagina {
+  position: relative;
+  width: min(1456px, calc(100% - 32px));
+  margin: 0 auto 32px;
+  /* altura mínima de slide 16:9; cresce se o conteúdo pedir mais espaço */
+  min-height: calc(min(1456px, 100vw - 32px) * 816 / 1456);
+  padding: 44px 72px 40px;
+  background: var(--offwhite);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.pagina.escura { background: var(--preto); color: var(--branco); }
+
+.topo, .rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.topo .marca { color: var(--dourado); }
+.topo .secao { color: var(--texto-suave); }
+.topo .num { color: #C7C2B8; letter-spacing: .1em; }
+.escura .topo .secao { color: var(--texto-suave-escuro); }
+.escura .topo .num { color: #4A4843; }
+.rodape { margin-top: auto; padding-top: 28px; color: #A8A399; font-size: 10px; }
+.escura .rodape { color: #55524C; }
+
+.conteudo { position: relative; z-index: 2; padding-top: 52px; flex: 1; display: flex; flex-direction: column; }
+
+.rotulo-secao {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--dourado-escuro);
+  padding-top: 22px;
+  border-top: 4px solid var(--dourado);
+  width: max-content;
+  max-width: 100%;
+}
+.escura .rotulo-secao { color: var(--dourado); }
+.rotulo-secao::before { content: ""; }
+
+h1, h2 {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin-top: 18px;
+}
+h2 { font-size: clamp(34px, 4.4vw, 62px); }
+.lead {
+  font-size: clamp(16px, 1.45vw, 21px);
+  line-height: 1.5;
+  color: var(--texto-suave);
+  margin-top: 14px;
+  max-width: 62ch;
+}
+.escura .lead { color: var(--texto-suave-escuro); }
+
+.numero-fundo {
+  position: absolute;
+  right: 56px;
+  top: 10px;
+  font-size: clamp(160px, 22vw, 330px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  color: #EDEAE4;
+  line-height: 1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--dourado-escuro);
+}
+.escura .label { color: var(--dourado); }
+
+.cartao {
+  background: var(--branco);
+  border: 1px solid var(--hairline);
+  border-radius: var(--raio);
+  padding: 28px 30px;
+}
+.escura .cartao { background: transparent; border-color: var(--hairline-escura); }
+
+.novo {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--preto);
+  background: var(--dourado);
+  border-radius: 99px;
+  padding: 3px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ---------- Capa ---------- */
+.capa { display: grid; grid-template-columns: 46% 54%; padding: 0; }
+.capa .lado-texto { padding: 44px 72px 40px; display: flex; flex-direction: column; position: relative; z-index: 2; }
+.capa .lado-foto { position: relative; }
+.capa .lado-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; }
+.capa .lado-foto::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--preto) 0%, rgba(14,14,14,.55) 22%, rgba(14,14,14,0) 48%);
+}
+.capa .nome { font-size: 12px; font-weight: 700; letter-spacing: .3em; color: var(--dourado); }
+.capa .meio { margin: auto 0; }
+.capa h1 { font-size: clamp(56px, 7.6vw, 108px); line-height: .92; margin-top: 18px; }
+.capa .lead { color: #B8B2A7; max-width: 30ch; margin-top: 26px; }
+.capa .versao { font-size: 11px; font-weight: 700; letter-spacing: .3em; color: var(--dourado); }
+.capa .paginacao { position: absolute; right: 44px; bottom: 40px; z-index: 2; font-size: 11px; letter-spacing: .2em; color: #CFCAC0; }
+
+/* ---------- Índice ---------- */
+.indice { display: grid; grid-template-columns: 1fr 1fr; column-gap: 72px; margin-top: 44px; }
+.indice a {
+  display: grid; grid-template-columns: 64px 1fr; padding: 18px 0;
+  border-bottom: 1px solid var(--hairline); text-decoration: none; color: inherit;
+}
+.indice a:hover strong { color: var(--dourado-escuro); }
+.indice .n { font-weight: 700; color: var(--dourado-escuro); font-size: 17px; }
+.indice strong { display: block; font-size: 19px; font-weight: 700; }
+.indice span { display: block; font-size: 14px; color: var(--texto-suave); margin-top: 3px; }
+.indice .novo { display: inline-block; font-size: 9px; color: var(--preto); margin-top: 0; }
+
+/* ---------- Essência ---------- */
+.essencia { display: grid; grid-template-columns: 64% 36%; padding: 0; }
+.essencia .lado-texto { padding: 44px 72px 40px; display: flex; flex-direction: column; }
+.essencia .lado-foto { position: relative; }
+.essencia .lado-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; }
+.essencia .lado-foto::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--preto) 0%, rgba(14,14,14,0) 30%);
+}
+.caixa-dourada {
+  border: 1px solid var(--hairline-escura);
+  border-top: 3px solid var(--dourado);
+  border-radius: var(--raio);
+  padding: 28px 32px;
+  margin-top: 34px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #E7E3DB;
+  max-width: 62ch;
+}
+.tres-colunas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 36px; max-width: 760px; }
+.tres-colunas p { font-size: 15px; line-height: 1.55; color: var(--texto-suave-escuro); margin-top: 10px; }
+
+/* ---------- Assinatura ---------- */
+.grade-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.assinatura { font-size: clamp(44px, 5vw, 72px); font-weight: 800; letter-spacing: -0.04em; margin-top: 18px; }
+.assinatura .arroba { color: var(--dourado); }
+.assinatura-nome { font-size: clamp(36px, 3.6vw, 50px); font-weight: 800; letter-spacing: -0.035em; margin-top: 14px; }
+.assinatura-sub { font-size: 12px; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; color: var(--texto-suave); margin-top: 10px; }
+.protecao { display: inline-block; border: 1px dashed #C9B98A; border-radius: 8px; padding: 22px 30px; margin-top: 20px; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; }
+.protecao .arroba { color: var(--dourado); }
+.erros { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+.erros span {
+  display: flex; gap: 10px; align-items: center;
+  border: 1px solid var(--hairline); border-radius: 10px; padding: 12px 16px;
+  font-size: 14px; color: var(--texto-suave);
+}
+.erros span::before { content: "✕"; font-size: 11px; color: #9B958A; background: #EEEBE5; border-radius: 99px; width: 22px; height: 22px; display: grid; place-items: center; flex: none; }
+
+/* ---------- Cores ---------- */
+.cores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+.cor { background: var(--branco); border: 1px solid var(--hairline); border-radius: var(--raio); overflow: hidden; }
+.cor .amostra { height: 96px; }
+.cor .info { padding: 18px 20px 20px; }
+.cor .nome { font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+.cor .hex { font-size: 16px; font-weight: 700; color: var(--dourado-escuro); margin-top: 6px; }
+.cor .uso { font-size: 13px; color: var(--texto-suave); margin-top: 6px; line-height: 1.45; }
+
+/* ---------- Tipografia ---------- */
+.tipografia { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; margin-top: 36px; }
+.familia { border-bottom: 1px solid var(--hairline); padding: 6px 0 22px; margin-bottom: 22px; }
+.familia .aa { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+.familia .uso { font-size: 14px; color: var(--texto-suave); margin-top: 6px; }
+.familia .label { display: block; margin-top: 12px; }
+.tabela-hierarquia { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+.tabela-hierarquia td { padding: 15px 0; border-top: 1px solid var(--hairline); color: var(--texto-suave); }
+.tabela-hierarquia tr:last-child td { border-bottom: 1px solid var(--hairline); }
+.tabela-hierarquia td:first-child { font-weight: 700; letter-spacing: .2em; color: var(--texto-claro); font-size: 12px; }
+.regra-tipo { font-size: 14px; color: var(--texto-suave); line-height: 1.6; margin-top: 18px; }
+
+/* ---------- Fotografia ---------- */
+.fotos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+.foto { position: relative; border-radius: var(--raio); overflow: hidden; aspect-ratio: 4 / 3; background: var(--creme); }
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.foto span { position: absolute; left: 18px; bottom: 16px; font-size: 12px; font-weight: 700; letter-spacing: .26em; color: var(--dourado); text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+.foto::after { content: ""; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.45)); }
+.foto span { z-index: 2; }
+.diretrizes { display: grid; grid-template-columns: 110px 1fr; row-gap: 12px; margin-top: 26px; font-size: 14px; color: var(--texto-suave); }
+.diretrizes b { font-size: 12px; letter-spacing: .24em; color: var(--dourado-escuro); }
+
+/* ---------- Grafismos ---------- */
+.grade-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+.grafismo .demo { height: 110px; display: grid; place-items: center; }
+.grafismo h4 { font-size: 13px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; margin-top: 10px; }
+.grafismo p { font-size: 13px; color: var(--texto-suave); margin-top: 6px; line-height: 1.5; }
+.demo-divisor { width: 60%; }
+.demo-divisor i { display: block; height: 3px; background: var(--dourado); }
+.demo-divisor i + i { height: 1px; background: var(--hairline); margin-top: 8px; }
+.demo-num { font-size: 96px; font-weight: 800; color: #EDEAE4; letter-spacing: -0.05em; }
+.demo-label { font-size: 13px; font-weight: 700; letter-spacing: .4em; color: var(--dourado-escuro); }
+.demo-marcador { font-size: 15px; color: var(--texto-suave); }
+.demo-marcador::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dourado); margin-right: 12px; }
+.demo-cartao { width: 94px; height: 60px; border: 1px solid var(--hairline); border-radius: var(--raio); }
+.demo-realce { font-size: 19px; font-weight: 600; }
+.demo-realce em { font-style: normal; color: var(--dourado-escuro); }
+
+/* ---------- Tom de voz ---------- */
+.grade-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+.principio p { font-size: 14px; line-height: 1.55; color: var(--texto-suave-escuro); margin-top: 10px; }
+.tom-baixo { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 34px; }
+.evitar-lista { font-size: 17px; line-height: 1.7; color: #E7E3DB; margin-top: 12px; }
+.evitar-nota { font-size: 13px; color: var(--texto-suave-escuro); margin-top: 12px; line-height: 1.55; }
+.par { display: grid; grid-template-columns: 70px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--hairline-escura); font-size: 15px; line-height: 1.55; color: #E7E3DB; }
+.par:last-child { border-bottom: 1px solid var(--hairline-escura); }
+.par b { font-size: 11px; letter-spacing: .24em; color: #8D877C; padding-top: 3px; }
+.par.use b { color: var(--dourado); }
+
+/* ---------- Conversa (V3.1) ---------- */
+.conversa { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; margin-top: 34px; }
+.regras-conversa { list-style: none; }
+.regras-conversa li { position: relative; padding: 0 0 18px 22px; font-size: 15px; line-height: 1.6; color: var(--texto-suave); }
+.regras-conversa li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--dourado); }
+.regras-conversa b { color: var(--texto-claro); }
+.teste { margin-top: 6px; background: var(--creme); border-radius: var(--raio); padding: 20px 24px; font-size: 15px; line-height: 1.6; }
+.teste .label { display: block; margin-bottom: 6px; }
+.comparativo { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+.comparativo th { text-align: left; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; padding: 0 12px 10px 0; }
+.comparativo th:first-child { color: #9B958A; }
+.comparativo th:last-child { color: var(--dourado-escuro); }
+.comparativo td { padding: 14px 14px 14px 0; border-top: 1px solid var(--hairline); vertical-align: top; width: 50%; }
+.comparativo td:first-child { color: var(--texto-suave); }
+.comparativo td:last-child { color: var(--texto-claro); font-weight: 500; }
+.ganchos { margin-top: 22px; }
+.ganchos p { font-size: 15px; line-height: 1.5; padding: 10px 0; border-top: 1px solid var(--hairline); }
+
+/* ---------- Aplicações ---------- */
+.aplicacoes { display: flex; gap: 40px; align-items: flex-end; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+.mock { text-align: center; }
+.mock .peca { border-radius: 12px; background: var(--preto); color: var(--branco); text-align: left; position: relative; padding: 22px 24px; display: flex; flex-direction: column; box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+.mock .peca .label { font-size: 9px; }
+.mock .peca strong { margin-top: auto; font-size: 27px; line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; }
+.mock .peca small { font-size: 9px; letter-spacing: .25em; color: #8D877C; margin-top: 14px; }
+.mock .carrossel { width: 260px; aspect-ratio: 1080 / 1350; }
+.mock .story { width: 196px; aspect-ratio: 1080 / 1920; }
+.mock .story strong { font-size: 21px; }
+.mock .story .arraste { margin-top: 12px; background: var(--offwhite); color: var(--preto); font-size: 8px; letter-spacing: .2em; font-weight: 700; border-radius: 99px; padding: 4px 8px; width: max-content; }
+.mock .assinatura-card { width: 300px; background: var(--branco); border: 1px solid var(--hairline); border-radius: 12px; padding: 30px; text-align: left; box-shadow: 0 18px 40px rgba(0,0,0,.08); }
+.mock .assinatura-card strong { font-size: 27px; font-weight: 800; letter-spacing: -0.03em; }
+.mock .assinatura-card .arroba-linha { color: var(--dourado-escuro); font-weight: 700; font-size: 14px; margin-top: 4px; }
+.mock .assinatura-card .sub { font-size: 10px; letter-spacing: .22em; color: var(--texto-suave); margin-top: 18px; font-weight: 600; }
+.mock .assinatura-card hr { border: 0; height: 3px; width: 44px; background: var(--dourado); margin-top: 18px; }
+.mock .legenda { font-size: 11px; font-weight: 700; letter-spacing: .24em; color: var(--dourado-escuro); margin-top: 16px; }
+.funcao { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+.funcao .bloco { border-radius: var(--raio); padding: 20px 22px; border: 1px solid var(--hairline); }
+.funcao .bloco p { font-size: 13px; line-height: 1.5; margin-top: 6px; }
+.funcao .preto { background: var(--preto); color: var(--branco); border-color: var(--preto); }
+.funcao .preto p { color: var(--texto-suave-escuro); }
+.funcao .claro { background: var(--branco); }
+.funcao .claro p { color: var(--texto-suave); }
+.funcao .foto-bloco { background: linear-gradient(135deg, #5C6B73, #2C3439); color: var(--branco); border: 0; }
+.funcao .foto-bloco p { color: #D7DCDF; }
+
+/* ---------- Governança ---------- */
+.governanca { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 34px; }
+.nunca { list-style: none; }
+.nunca li { position: relative; padding: 13px 0 13px 24px; border-bottom: 1px solid var(--hairline); font-size: 15px; }
+.nunca li::before { content: ""; position: absolute; left: 0; top: 21px; width: 8px; height: 8px; border-radius: 50%; background: var(--dourado); }
+.resumo .linha { display: flex; justify-content: space-between; gap: 18px; padding: 13px 0; border-bottom: 1px solid var(--hairline); font-size: 14px; }
+.resumo .linha span:first-child { font-size: 11px; font-weight: 700; letter-spacing: .24em; color: var(--texto-suave); padding-top: 2px; }
+.resumo .linha span:last-child { font-weight: 600; text-align: right; }
+.resumo .hex { color: var(--dourado-escuro); }
+.frase-final { margin-top: 22px; font-size: 14px; font-weight: 600; }
+.frase-final .arroba { color: var(--dourado-escuro); }
+
+/* ---------- Celular e tablet ---------- */
+@media (max-width: 1100px) {
+  .pagina { min-height: 0; padding: 32px 28px; }
+  .capa, .essencia { grid-template-columns: 1fr; padding: 0; }
+  .capa .lado-texto, .essencia .lado-texto { padding: 32px 28px; }
+  .capa .lado-foto, .essencia .lado-foto { height: 380px; order: -1; }
+  .capa .lado-foto::before { background: linear-gradient(0deg, var(--preto) 0%, rgba(14,14,14,0) 45%); }
+  .essencia .lado-foto::before { background: linear-gradient(0deg, var(--preto) 0%, rgba(14,14,14,0) 40%); }
+  .capa .paginacao { display: none; }
+  .capa .meio { margin: 32px 0; }
+  .cores { grid-template-columns: repeat(2, 1fr); }
+  .grade-4 { grid-template-columns: repeat(2, 1fr); }
+  .numero-fundo { font-size: 140px; right: 20px; }
+}
+@media (max-width: 760px) {
+  body { padding: 16px 0 32px; }
+  .pagina { width: calc(100% - 32px); padding: 24px 20px; margin-bottom: 16px; }
+  .topo .secao { display: none; }
+  .topo, .rodape { font-size: 9px; letter-spacing: .18em; }
+  .rodape { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .conteudo { padding-top: 32px; }
+  .indice, .grade-2, .tipografia, .tom-baixo, .conversa, .governanca, .tres-colunas, .erros, .fotos, .grade-3, .funcao, .grade-4 { grid-template-columns: 1fr; column-gap: 0; }
+  .tipografia, .tom-baixo, .conversa, .governanca { gap: 28px; }
+  .cores { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cor .amostra { height: 64px; }
+  .cor .info { padding: 12px 14px 14px; }
+  .capa .lado-foto, .essencia .lado-foto { height: 300px; }
+  .capa .lado-texto, .essencia .lado-texto { padding: 24px 20px; }
+  .numero-fundo { display: none; }
+  .rotulo-secao { width: auto; letter-spacing: .18em; }
+  .grafismo .demo { height: 72px; }
+  .resumo .linha { flex-direction: column; gap: 4px; }
+  .resumo .linha span:last-child { text-align: left; }
+  .comparativo td { width: auto; }
+  .mock .carrossel { width: 220px; }
+}
+
+/* ============================================================
+   ACABAMENTO PREMIUM
+   Tudo discreto: o movimento organiza o olhar, sem virar espetáculo.
+   Quem pede menos movimento no computador vê tudo parado.
+   ============================================================ */
+
+/* Textura de filme: forte nas páginas pretas, quase invisível nas claras */
+.pagina::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 4;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  opacity: .035; mix-blend-mode: multiply;
+}
+.pagina.escura::after { opacity: .09; mix-blend-mode: overlay; }
+
+/* Barra de leitura no topo */
+.progresso {
+  position: fixed; left: 0; top: 0; width: 100%; height: 2px; z-index: 60;
+  background: var(--dourado); transform-origin: 0 50%; transform: scaleX(0);
+}
+
+/* Navegação lateral com as seções */
+.trilho {
+  position: fixed; right: 16px; top: 50%; transform: translateY(-50%); z-index: 50;
+  display: flex; flex-direction: column; gap: 2px; padding: 12px 6px;
+  border-radius: 99px; background: rgba(14,14,14,.6);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.trilho a { position: relative; display: block; width: 28px; height: 18px; }
+.trilho a::before {
+  content: ""; position: absolute; right: 8px; top: 50%; width: 9px; height: 1px;
+  background: #6E6A63; transition: width .35s ease, background .35s ease;
+}
+.trilho a:hover::before, .trilho a.ativo::before { width: 18px; background: var(--dourado); }
+.trilho a span {
+  position: absolute; right: 36px; top: 50%; white-space: nowrap;
+  transform: translate(6px, -50%); opacity: 0; pointer-events: none;
+  font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--offwhite); background: var(--preto); border: 1px solid rgba(255,255,255,.08);
+  padding: 6px 10px; border-radius: 6px; transition: opacity .25s ease, transform .25s ease;
+}
+.trilho a:hover span, .trilho a:focus-visible span { opacity: 1; transform: translate(0, -50%); }
+
+/* Ponto dourado que acompanha o cursor (só com mouse) */
+.cursor {
+  position: fixed; left: 0; top: 0; z-index: 70; pointer-events: none;
+  width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%;
+  background: var(--dourado); opacity: 0;
+  transition: width .3s ease, height .3s ease, margin .3s ease, background .3s ease, border-color .3s ease, opacity .3s ease;
+  border: 1px solid transparent;
+}
+.cursor.ligado { opacity: 1; }
+.cursor.grande { width: 46px; height: 46px; margin: -23px 0 0 -23px; background: rgba(201,168,76,.14); border-color: var(--dourado); }
+
+/* Entrada suave: desfocado, depois nítido */
+html.js .revelar {
+  opacity: 0; transform: translateY(22px); filter: blur(8px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1), filter .9s ease;
+  transition-delay: var(--atraso, 0s);
+}
+html.js .revelar.visivel { opacity: 1; transform: none; filter: none; }
+
+/* O filete dourado do rótulo se desenha da esquerda pra direita */
+html.js .rotulo-secao { border-top-color: transparent; position: relative; }
+html.js .rotulo-secao::before {
+  content: ""; position: absolute; left: 0; top: -4px; height: 4px; width: 0;
+  background: var(--dourado); transition: width 1.2s cubic-bezier(.7,0,.2,1) .25s;
+}
+html.js .rotulo-secao.visivel::before { width: 100%; }
+
+/* Fotos se revelam como uma moldura abrindo */
+html.js .foto.revelar img, html.js .lado-foto.revelar img {
+  clip-path: inset(100% 0 0 0); transform: scale(1.14);
+  transition: clip-path 1.5s cubic-bezier(.7,0,.2,1), transform 1.8s cubic-bezier(.2,.7,.2,1);
+}
+html.js .foto.visivel img, html.js .lado-foto.visivel img { clip-path: inset(0 0 0 0); transform: scale(1); }
+html.js .foto.revelar, html.js .lado-foto.revelar { filter: none; transform: none; }
+.foto img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+html.js .foto.visivel:hover img { transform: scale(1.045); }
+
+/* A sombra que funde a foto com o preto fica sempre por cima da foto animada */
+.capa .lado-foto, .essencia .lado-foto { isolation: isolate; overflow: hidden; }
+.capa .lado-foto img, .essencia .lado-foto img { position: relative; z-index: 0; }
+.capa .lado-foto::before, .essencia .lado-foto::before { z-index: 2; }
+
+/* Capa: a foto acompanha o mouse bem de leve */
+html.js .capa .lado-foto.visivel img {
+  transform: scale(1.06) translate(var(--px, 0px), var(--py, 0px));
+  transition: clip-path 1.5s cubic-bezier(.7,0,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+/* Cartões: luz dourada que segue o mouse e leve elevação */
+.cartao, .cor { position: relative; transition: transform .45s cubic-bezier(.2,.7,.2,1), border-color .45s ease, box-shadow .45s ease; }
+.cartao::before, .cor::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(201,168,76,.12), transparent 60%);
+  transition: opacity .4s ease;
+}
+.cartao:hover::before, .cor:hover::before { opacity: 1; }
+.cartao:hover, .cor:hover { transform: translateY(-3px); border-color: rgba(201,168,76,.55); box-shadow: 0 18px 40px rgba(14,14,14,.08); }
+.escura .cartao:hover { box-shadow: none; }
+
+/* Paleta: clique pra copiar o código da cor */
+.cor { cursor: copy; }
+.cor .amostra { position: relative; }
+.cor .amostra::after {
+  content: "Clique pra copiar"; position: absolute; right: 12px; bottom: 10px;
+  font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  padding: 4px 8px; border-radius: 99px; background: rgba(255,255,255,.88); color: var(--preto);
+  opacity: 0; transform: translateY(4px); transition: opacity .3s ease, transform .3s ease;
+}
+.cor:hover .amostra::after { opacity: 1; transform: none; }
+.aviso {
+  position: fixed; left: 50%; bottom: 28px; z-index: 80; transform: translate(-50%, 20px);
+  background: var(--preto); color: var(--offwhite); border: 1px solid rgba(201,168,76,.5);
+  padding: 12px 18px; border-radius: 99px; font-size: 13px; font-weight: 600; letter-spacing: .02em;
+  opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease;
+}
+.aviso b { color: var(--dourado); }
+.aviso.mostrando { opacity: 1; transform: translate(-50%, 0); }
+
+/* Índice: a linha ganha um traço dourado no hover */
+.indice a { position: relative; }
+.indice a::after {
+  content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0;
+  background: var(--dourado); transition: width .5s cubic-bezier(.7,0,.2,1);
+}
+.indice a:hover::after { width: 100%; }
+
+@media (max-width: 1100px) { .trilho { display: none; } }
+@media (pointer: coarse) { .cursor { display: none; } .cartao:hover, .cor:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html.js .revelar { opacity: 1; transform: none; filter: none; transition: none; }
+  html.js .foto.revelar img, html.js .lado-foto.revelar img { clip-path: none; transform: none; transition: none; }
+  html.js .rotulo-secao::before { width: 100%; transition: none; }
+  .cursor { display: none; }
+}
+
+/* ---------- Pra salvar em PDF (Ctrl + P › Salvar como PDF) ---------- */
+@media print {
+  @page { size: 1456px 816px; margin: 0; }
+  html, body { background: none; padding: 0; }
+  .pagina { width: 1456px; min-height: 816px; margin: 0; border-radius: 0; break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .trilho, .cursor, .progresso, .aviso, .pagina::after { display: none !important; }
+  html.js .revelar { opacity: 1 !important; transform: none !important; filter: none !important; }
+  html.js .foto.revelar img, html.js .lado-foto.revelar img { clip-path: none !important; transform: none !important; }
+  html.js .rotulo-secao::before { width: 100% !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="progresso" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="aviso" role="status" aria-live="polite"></div>
+<nav class="trilho" aria-label="Seções do Brand Book">
+  <a href="#capa"><span>Capa</span></a>
+  <a href="#indice"><span>Índice</span></a>
+  <a href="#essencia"><span>01 · Essência</span></a>
+  <a href="#assinatura"><span>02 · Assinatura</span></a>
+  <a href="#cores"><span>03 · Cores</span></a>
+  <a href="#tipografia"><span>04 · Tipografia</span></a>
+  <a href="#fotografia"><span>05 · Fotografia</span></a>
+  <a href="#grafismos"><span>06 · Grafismos</span></a>
+  <a href="#tom"><span>07 · Tom de voz</span></a>
+  <a href="#conversa"><span>07.1 · Conversa</span></a>
+  <a href="#aplicacoes"><span>08 · Aplicações</span></a>
+  <a href="#governanca"><span>09 · Governança</span></a>
+</nav>
+
+<!-- 01 · CAPA -->
+<section class="pagina escura capa" id="capa">
+  <div class="lado-texto">
+    <div class="nome">JOÃO PAULO &nbsp;·&nbsp; @OJPVIAJA</div>
+    <div class="meio">
+      <div class="rotulo-secao">Sistema de identidade de marca</div>
+      <h1>Brand<br>Book</h1>
+      <p class="lead">Linguagem visual e sistema de identidade da marca @ojpviaja, construída sobre estratégia, tecnologia e movimento.</p>
+    </div>
+    <div class="versao">PREMIUM REDESIGN &nbsp;·&nbsp; V3.1</div>
+  </div>
+  <div class="lado-foto"><img src="Brand_Book_OJPViaja_V3.1_arquivos/capa.jpg" alt="João Paulo lendo uma revista numa sala de embarque"></div>
+  <div class="paginacao">01 / 12</div>
+</section>
+
+<!-- 02 · ÍNDICE -->
+<section class="pagina" id="indice">
+  <div class="numero-fundo">12</div>
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">Conteúdo</span><span class="num">02</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">00 · Conteúdo</div>
+    <h2>Índice do Brand Book</h2>
+    <nav class="indice">
+      <div>
+        <a href="#essencia"><span class="n">01</span><div><strong>Essência da marca</strong><span>Ideia central e personalidade</span></div></a>
+        <a href="#assinatura"><span class="n">02</span><div><strong>Assinatura da marca</strong><span>Wordmark, área de proteção e usos</span></div></a>
+        <a href="#cores"><span class="n">03</span><div><strong>Sistema de cores</strong><span>Paleta, proporção e contraste</span></div></a>
+        <a href="#tipografia"><span class="n">04</span><div><strong>Tipografia</strong><span>Famílias, hierarquia e legibilidade</span></div></a>
+        <a href="#fotografia"><span class="n">05</span><div><strong>Direção de fotografia</strong><span>Estilo de imagem e referências</span></div></a>
+      </div>
+      <div>
+        <a href="#grafismos"><span class="n">06</span><div><strong>Grafismos e apoio</strong><span>Dourado, dividers e marcadores</span></div></a>
+        <a href="#tom"><span class="n">07</span><div><strong>Tom de voz</strong><span>Princípios, vocabulário e exemplos</span></div></a>
+        <a href="#conversa"><span class="n">07.1</span><div><strong>A conversa e o gancho <span class="novo">V3.1</span></strong><span>Segunda pessoa e o gancho que para o scroll</span></div></a>
+        <a href="#aplicacoes"><span class="n">08</span><div><strong>Aplicações</strong><span>Feed, story, assinatura e fundo por função</span></div></a>
+        <a href="#governanca"><span class="n">09</span><div><strong>Governança da marca</strong><span>Regras de uso e resumo técnico</span></div></a>
+      </div>
+    </nav>
+    <p class="regra-tipo" style="margin-top:24px">Documento interno de identidade · Versão 3.1 · Outubro 2026</p>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>02 / 12</span></div>
+</section>
+
+<!-- 03 · ESSÊNCIA -->
+<section class="pagina escura essencia" id="essencia">
+  <div class="lado-texto">
+    <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">01 · Essência da marca</span><span class="num"></span></div>
+    <div class="conteudo">
+      <div class="rotulo-secao">01 · Essência da marca</div>
+      <h2>Uma marca para tirar<br>o turismo do improviso.</h2>
+      <p class="lead">Estratégia antes da ferramenta. Sistema antes da pressa. Tecnologia trabalhando em silêncio para que o humano apareça onde importa.</p>
+      <div class="caixa-dourada">A marca existe para dar direção, processo e previsibilidade a quem vive de turismo. A tecnologia não aparece como espetáculo. Ela sustenta a operação por baixo, para que a conversa com o cliente aconteça com mais clareza.</div>
+      <div class="tres-colunas">
+        <div><div class="label">Consultiva</div><p>Entende o contexto antes de prescrever a solução.</p></div>
+        <div><div class="label">Estrutural</div><p>Resolve a causa do problema, não apenas o sintoma.</p></div>
+        <div><div class="label">Direta</div><p>Fala com clareza, sem jargão e sem teatro de venda.</p></div>
+      </div>
+    </div>
+    <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>03 / 12</span></div>
+  </div>
+  <div class="lado-foto"><img src="Brand_Book_OJPViaja_V3.1_arquivos/essencia.jpg" alt="João Paulo num barco olhando pela janela"></div>
+</section>
+
+<!-- 04 · ASSINATURA -->
+<section class="pagina" id="assinatura">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">02 · Assinatura da marca</span><span class="num">04</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">02 · Assinatura da marca</div>
+    <h2>A assinatura é tipográfica</h2>
+    <p class="lead">A marca não usa símbolo. A identidade nasce do nome escrito sempre em Inter, com o arroba como marca de origem e espaço generoso ao redor.</p>
+    <div class="grade-2">
+      <div class="cartao"><div class="label">Assinatura principal</div><div class="assinatura"><span class="arroba">@</span>ojpviaja</div></div>
+      <div class="cartao"><div class="label">Assinatura com nome</div><div class="assinatura-nome">João Paulo</div><div class="assinatura-sub">@ojpviaja · Estratégia de IA para turismo</div></div>
+      <div class="cartao"><div class="label">Área de proteção</div><div class="protecao"><span class="arroba">@</span>ojpviaja</div></div>
+      <div class="cartao"><div class="label">Usos incorretos</div>
+        <div class="erros"><span>Distorcer ou condensar o nome</span><span>Trocar por cor fora da paleta</span><span>Aplicar sombra, contorno ou brilho</span><span>Girar ou inclinar a assinatura</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>04 / 12</span></div>
+</section>
+
+<!-- 05 · CORES -->
+<section class="pagina" id="cores">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">03 · Sistema de cores</span><span class="num">05</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">03 · Sistema de cores</div>
+    <h2>Paleta oficial</h2>
+    <p class="lead">Uma base neutra e sofisticada, com dourado usado como sinal de direção. Nunca como decoração excessiva.</p>
+    <div class="cores">
+      <div class="cor"><div class="amostra" style="background:var(--preto)"></div><div class="info"><div class="nome">Preto estrutural</div><div class="hex">#0E0E0E</div><div class="uso">Fundos, autoridade e contraste</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--dourado)"></div><div class="info"><div class="nome">Dourado</div><div class="hex">#C9A84C</div><div class="uso">Acentos, números e direção visual. Em fundo escuro ou em tamanho grande</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--dourado-escuro)"></div><div class="info"><div class="nome">Dourado escuro <span class="novo">V3.1</span></div><div class="hex">#8A6D24</div><div class="uso">Texto pequeno dourado em fundo claro, onde o dourado normal fica fraco de ler</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--offwhite); border-bottom:1px solid var(--hairline)"></div><div class="info"><div class="nome">Off-white</div><div class="hex">#F7F5F0</div><div class="uso">Fundos claros e respiro</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--creme)"></div><div class="info"><div class="nome">Creme</div><div class="hex">#EDE8DF</div><div class="uso">Blocos secundários e apoio</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--base-anuncios)"></div><div class="info"><div class="nome">Base de anúncios</div><div class="hex">#0B0F14</div><div class="uso">Performance e mídia paga</div></div></div>
+      <div class="cor"><div class="amostra" style="background:var(--amarelo-acao)"></div><div class="info"><div class="nome">Amarelo ação</div><div class="hex">#FFD84D</div><div class="uso">CTA de anúncios</div></div></div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>05 / 12</span></div>
+</section>
+
+<!-- 06 · TIPOGRAFIA -->
+<section class="pagina" id="tipografia">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">04 · Tipografia</span><span class="num">06</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">04 · Tipografia</div>
+    <h2>Sistema tipográfico</h2>
+    <p class="lead">Inter conduz a identidade editorial. Montserrat entra em produtos e anúncios. Caveat aparece apenas como detalhe humano nos stories.</p>
+    <div class="tipografia">
+      <div>
+        <div class="familia"><div class="aa">Aa</div><span class="label">Inter</span><div class="uso">Editorial, apresentações e carrosséis</div></div>
+        <div class="familia"><div class="aa" style="font-family:var(--fonte-produto); font-weight:700">Aa</div><span class="label">Montserrat</span><div class="uso">Produtos, anúncios e números</div></div>
+        <div class="familia" style="border:0; margin:0"><div class="aa" style="font-family:var(--fonte-humana); font-weight:700; color:var(--dourado); font-size:46px; letter-spacing:0">um detalhe humano</div><span class="label">Caveat</span><div class="uso">Assinaturas e observações em stories</div></div>
+      </div>
+      <div>
+        <div class="label">Hierarquia e legibilidade</div>
+        <table class="tabela-hierarquia">
+          <tr><td>DISPLAY</td><td>48 a 64 pt</td><td>800</td><td>0,92 a 1,0</td></tr>
+          <tr><td>TÍTULO</td><td>30 a 42 pt</td><td>750 a 800</td><td>1,0 a 1,08</td></tr>
+          <tr><td>SUBTÍTULO</td><td>16 a 22 pt</td><td>600 a 700</td><td>1,15</td></tr>
+          <tr><td>CORPO</td><td>12 a 16 pt</td><td>400 a 500</td><td>1,4 a 1,6</td></tr>
+          <tr><td>LABEL</td><td>7 a 10 pt</td><td>700</td><td>tracking alto</td></tr>
+        </table>
+        <p class="regra-tipo">Regras: títulos curtos, no máximo três linhas, margens generosas e corpo nunca menor que 12 pt em PDF.</p>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>06 / 12</span></div>
+</section>
+
+<!-- 07 · FOTOGRAFIA -->
+<section class="pagina" id="fotografia">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">05 · Direção de fotografia</span><span class="num">07</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">05 · Direção de fotografia</div>
+    <h2>Movimento, trabalho e vida real</h2>
+    <p class="lead">As imagens mostram uma vida em construção: deslocamento, autonomia, foco e presença. A estética é editorial, natural e adulta.</p>
+    <div class="fotos">
+      <div class="foto"><img src="Brand_Book_OJPViaja_V3.1_arquivos/movimento.jpg" alt="João Paulo num barco nos canais de Amsterdã"><span>MOVIMENTO</span></div>
+      <div class="foto"><img src="Brand_Book_OJPViaja_V3.1_arquivos/autonomia.jpg" alt="João Paulo trabalhando no notebook numa mesa de rua"><span>AUTONOMIA</span></div>
+      <div class="foto"><img src="Brand_Book_OJPViaja_V3.1_arquivos/direcao.jpg" alt="João Paulo caminhando no corredor de embarque com mala"><span>DIREÇÃO</span></div>
+    </div>
+    <div class="diretrizes">
+      <b>PREFERIR</b><span>Luz natural e contraste moderado · Expressões espontâneas e enquadramentos editoriais · Cores reais, pele natural e textura preservada</span>
+      <b>EVITAR</b><span>Banco de imagens genérico · Poses rígidas, excesso de sorriso ou luxo artificial · Filtros pesados, HDR e saturação extrema</span>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>07 / 12</span></div>
+</section>
+
+<!-- 08 · GRAFISMOS -->
+<section class="pagina" id="grafismos">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">06 · Grafismos e apoio</span><span class="num">08</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">06 · Grafismos e elementos de apoio</div>
+    <h2>O dourado como sinal, não como enfeite</h2>
+    <p class="lead">Os elementos gráficos existem para organizar o olhar. Pouco, fino e sempre com função.</p>
+    <div class="grade-3">
+      <div class="cartao grafismo"><div class="demo"><div class="demo-divisor"><i></i><i></i></div></div><h4>Divisor</h4><p>Rule fina dourada ou hairline neutra para separar blocos.</p></div>
+      <div class="cartao grafismo"><div class="demo"><div class="demo-num">06</div></div><h4>Numeração</h4><p>Número grande de baixo contraste marca a seção ao fundo.</p></div>
+      <div class="cartao grafismo"><div class="demo"><div class="demo-label">CONTEÚDO</div></div><h4>Label</h4><p>Caixa alta, tracking alto e tamanho pequeno.</p></div>
+      <div class="cartao grafismo"><div class="demo"><div class="demo-marcador">item de lista</div></div><h4>Marcador</h4><p>Ponto dourado discreto em listas e tópicos.</p></div>
+      <div class="cartao grafismo"><div class="demo"><div class="demo-cartao"></div></div><h4>Cartão</h4><p>Borda hairline, cantos de 14px e respiro interno.</p></div>
+      <div class="cartao grafismo"><div class="demo"><div class="demo-realce">uma palavra <em>dourada</em></div></div><h4>Realce</h4><p>Uma palavra-chave em dourado por bloco, no máximo.</p></div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>08 / 12</span></div>
+</section>
+
+<!-- 09 · TOM DE VOZ -->
+<section class="pagina escura" id="tom">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">07 · Tom de voz</span><span class="num">09</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">07 · Tom de voz</div>
+    <h2>Tom de voz</h2>
+    <p class="lead">A marca fala como um consultor que já resolveu o problema, não como alguém tentando impressionar com tecnologia.</p>
+    <div class="grade-4">
+      <div class="cartao principio"><div class="label">Consultivo</div><p>Começa pelo contexto, nomeia o problema e aponta a direção.</p></div>
+      <div class="cartao principio"><div class="label">Direto</div><p>Frases curtas, verbos concretos e uma ideia principal por bloco.</p></div>
+      <div class="cartao principio"><div class="label">Humano</div><p>Fala de igual para igual, sem superioridade e sem distância corporativa.</p></div>
+      <div class="cartao principio"><div class="label">Prático</div><p>Mostra aplicação, processo e próximo passo. Evita teoria sem consequência.</p></div>
+    </div>
+    <div class="tom-baixo">
+      <div>
+        <div class="label">Vocabulário a evitar</div>
+        <p class="evitar-lista">jornada · mentalidade · transformação · desbloquear · virar o jogo · próximo nível · potencializar</p>
+        <p class="evitar-nota">Também evitar: negação seguida de afirmação, exagero motivacional, promessa mirabolante, urgência falsa, jargão técnico e travessões usados como muleta.</p>
+      </div>
+      <div>
+        <div class="par"><b>EVITE</b><span>"Quer potencializar seus resultados? Desbloqueie seu potencial com IA agora mesmo."</span></div>
+        <div class="par use"><b>USE</b><span>"Seu negócio some do digital porque falta estrutura instalada. Tem solução em poucos dias."</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>09 / 12</span></div>
+</section>
+
+<!-- 10 · A CONVERSA E O GANCHO (V3.1) -->
+<section class="pagina" id="conversa">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">07.1 · A conversa e o gancho</span><span class="num">10</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">07.1 · A conversa e o gancho <span class="novo">V3.1</span></div>
+    <h2>A marca conversa com quem lê</h2>
+    <p class="lead">O conteúdo é uma conversa com a agente sentada na sua frente. Vale do gancho ao CTA, em carrossel, Reels, stories, legendas, Facebook, Threads, páginas e anúncios.</p>
+    <div class="conversa">
+      <div>
+        <ul class="regras-conversa">
+          <li><b>Segunda pessoa do começo ao fim:</b> "você", "a sua cliente", "o seu WhatsApp", "o seu orçamento".</li>
+          <li><b>Ninguém sem nome.</b> Nunca começar com "Ela..." ou "Ele..." sem dizer quem é. Toda pessoa citada tem papel claro: "a sua cliente", "uma cliente minha de Fortaleza".</li>
+          <li><b>O gancho que para o scroll</b> mostra uma coisa que ela faz hoje, do jeito que ela faz, e mexe nisso: a mensagem que ela manda, o hábito que ela tem, a conta que ela não sabe fazer.</li>
+        </ul>
+        <div class="teste"><span class="label">Teste da primeira linha</span>Lendo só a primeira frase, ela sabe que é com ela e de qual momento do dia dela estamos falando? Se não, reescreve.</div>
+      </div>
+      <div>
+        <table class="comparativo">
+          <tr><th>Evite</th><th>Use</th></tr>
+          <tr><td>"Ela visualizou o orçamento e não respondeu."</td><td>"Se a sua cliente visualizou o orçamento e sumiu, não manda 'e aí, conseguiu ver?'."</td></tr>
+          <tr><td>"O WhatsApp lotado é sinal de caos, não de sucesso."</td><td>"O seu WhatsApp lotado mostra que tem demanda. Sem estrutura, essa demanda vira caos."</td></tr>
+          <tr><td>"Agentes que vendem bem, mas vivem no improviso."</td><td>"Você vende bem e vive no improviso. É exatamente isso que eu resolvo."</td></tr>
+        </table>
+        <div class="ganchos">
+          <div class="label">Ganchos aprovados</div>
+          <p>"Agente de viagens, abre agora o seu WhatsApp e conta quantos orçamentos estão sem resposta."</p>
+          <p>"Quantas propostas você mandou esse mês que ainda estão sem resposta?"</p>
+          <p>"Três horas montando um orçamento pra um cliente que só queria saber o preço."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>10 / 12</span></div>
+</section>
+
+<!-- 11 · APLICAÇÕES -->
+<section class="pagina" id="aplicacoes">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">08 · Aplicações</span><span class="num">11</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">08 · Aplicações</div>
+    <h2>A identidade aplicada</h2>
+    <p class="lead">O sistema repetido nos formatos do dia a dia. Mesmas cores, mesma tipografia, mesmo respiro.</p>
+    <div class="aplicacoes">
+      <div class="mock"><div class="peca carrossel"><span class="label">Essência</span><strong>Estratégia antes da ferramenta.</strong><small>@OJPVIAJA</small></div><div class="legenda">CARROSSEL · 1080 × 1350</div></div>
+      <div class="mock"><div class="peca story"><span class="label">Bastidor</span><strong>Sistema rodando todos os dias.</strong><span class="arraste">ARRASTE PARA CIMA</span></div><div class="legenda">STORY · 1080 × 1920</div></div>
+      <div class="mock"><div class="assinatura-card"><strong>João Paulo</strong><div class="arroba-linha">@ojpviaja</div><div class="sub">ESTRATÉGIA DE IA PARA TURISMO</div><hr></div><div class="legenda">ASSINATURA</div></div>
+    </div>
+    <div class="funcao">
+      <div class="bloco preto"><span class="label">Fundo preto <span class="novo">V3.1</span></span><p>Posts de dor e de posicionamento. #0E0E0E com o dourado só no número ou na palavra-chave.</p></div>
+      <div class="bloco claro"><span class="label">Fundo off-white <span class="novo">V3.1</span></span><p>Posts de isca e de IA no concreto. #F7F5F0 com texto pequeno em dourado escuro.</p></div>
+      <div class="bloco foto-bloco"><span class="label" style="color:var(--dourado)">Foto real <span class="novo">V3.1</span></span><p>Bastidor. Foto editorial, luz natural, a operação rodando de onde você estiver.</p></div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>11 / 12</span></div>
+</section>
+
+<!-- 12 · GOVERNANÇA -->
+<section class="pagina" id="governanca">
+  <div class="topo"><span class="marca">@ojpviaja · Efeito Reservas</span><span class="secao">09 · Governança da marca</span><span class="num">12</span></div>
+  <div class="conteudo">
+    <div class="rotulo-secao">09 · Governança da marca</div>
+    <h2>Consistência transforma<br>identidade em marca.</h2>
+    <p class="lead">A identidade é reconhecida pela repetição das mesmas escolhas: contraste, ritmo, linguagem, fotografia e direção.</p>
+    <div class="governanca">
+      <div>
+        <div class="label">Nunca fazer</div>
+        <ul class="nunca">
+          <li>Reduzir corpo de texto para "fazer caber".</li>
+          <li>Usar dourado como fundo dominante ou em grandes massas.</li>
+          <li>Misturar mais de duas famílias tipográficas na mesma peça.</li>
+          <li>Aplicar imagens genéricas, poses artificiais ou filtros pesados.</li>
+          <li>Criar frases motivacionais sem processo, prova ou consequência.</li>
+          <li>Adicionar efeitos, sombras e bordas que competem com a mensagem.</li>
+          <li>Abrir um texto falando de alguém sem dizer quem é. <span class="novo">V3.1</span></li>
+        </ul>
+        <p class="frase-final"><span class="arroba">@ojpviaja</span> · Agenda cheia. Cliente qualificado. Sistema rodando.</p>
+      </div>
+      <div class="cartao resumo">
+        <div class="label" style="margin-bottom:8px">Resumo técnico</div>
+        <div class="linha"><span>BASE</span><span class="hex">#0E0E0E / #F7F5F0</span></div>
+        <div class="linha"><span>ACENTO</span><span class="hex">#C9A84C · texto pequeno no claro #8A6D24</span></div>
+        <div class="linha"><span>FUNDO</span><span>Preto pra dor e posicionamento · off-white pra isca e IA · foto no bastidor</span></div>
+        <div class="linha"><span>TIPOGRAFIA</span><span>Inter · Montserrat · Caveat</span></div>
+        <div class="linha"><span>FOTOGRAFIA</span><span>Natural, editorial, em movimento</span></div>
+        <div class="linha"><span>TOM</span><span>Consultivo, direto, humano e prático, em conversa com você</span></div>
+        <div class="linha"><span>CARROSSÉIS</span><span>1080 × 1350 px</span></div>
+        <p class="regra-tipo" style="text-align:right; font-size:10px; letter-spacing:.2em; margin-top:14px">DOCUMENTO INTERNO · VERSÃO 3.1</p>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"><span>Brand identity system · V3.1 · Outubro 2026</span><span>12 / 12</span></div>
+</section>
+
+<script>
+/* Acabamento premium: entrada suave, navegação, cursor, luz nos cartões e cópia das cores.
+   Sem este script o Brand Book abre normal, só sem os movimentos. */
+(function () {
+  var raiz = document.documentElement;
+  raiz.classList.add('js');
+  var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var comMouse = window.matchMedia('(pointer: fine)').matches;
+
+  /* 1. Entrada suave, bloco a bloco */
+  var grupos = '.grade-2, .grade-3, .grade-4, .cores, .fotos, .indice, .tipografia, .tom-baixo, .conversa, .aplicacoes, .funcao, .governanca, .tres-colunas';
+  var alvos = [];
+  function marcar(el, i) {
+    el.classList.add('revelar');
+    el.style.setProperty('--atraso', Math.min(i * 0.07, 0.7) + 's');
+    alvos.push(el);
+  }
+  document.querySelectorAll('.pagina').forEach(function (pagina) {
+    var i = 0;
+    pagina.querySelectorAll('.lado-foto').forEach(function (f) { marcar(f, 0); });
+    pagina.querySelectorAll('.capa .meio > *').forEach(function (el) { marcar(el, i++); });
+    pagina.querySelectorAll('.conteudo').forEach(function (conteudo) {
+      Array.prototype.forEach.call(conteudo.children, function (filho) {
+        if (filho.matches(grupos)) {
+          var itens = filho.matches('.indice') ? filho.querySelectorAll('a') : filho.children;
+          Array.prototype.forEach.call(itens, function (item) { marcar(item, i++); });
+        } else {
+          marcar(filho, i++);
+        }
+      });
+    });
+  });
+  if (calmo || !('IntersectionObserver' in window)) {
+    alvos.forEach(function (el) { el.classList.add('visivel'); });
+  } else {
+    var olho = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visivel'); olho.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    alvos.forEach(function (el) { olho.observe(el); });
+  }
+
+  /* 2. Navegação lateral e barra de leitura */
+  var links = {};
+  document.querySelectorAll('.trilho a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var olhoSecao = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting && links[e.target.id]) {
+          Object.keys(links).forEach(function (k) { links[k].classList.remove('ativo'); });
+          links[e.target.id].classList.add('ativo');
+        }
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll('.pagina[id]').forEach(function (p) { olhoSecao.observe(p); });
+  }
+  var barra = document.querySelector('.progresso');
+  var esperando = false;
+  function atualizaBarra() {
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.transform = 'scaleX(' + (total > 0 ? window.scrollY / total : 0) + ')';
+    esperando = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!esperando) { esperando = true; requestAnimationFrame(atualizaBarra); }
+  }, { passive: true });
+  atualizaBarra();
+
+  /* 3. Ponto dourado que segue o cursor */
+  var ponto = document.querySelector('.cursor');
+  if (comMouse && !calmo) {
+    var alvoX = -100, alvoY = -100, x = -100, y = -100;
+    document.addEventListener('pointermove', function (e) {
+      alvoX = e.clientX; alvoY = e.clientY; ponto.classList.add('ligado');
+    });
+    document.addEventListener('pointerleave', function () { ponto.classList.remove('ligado'); });
+    (function anda() {
+      x += (alvoX - x) * 0.22; y += (alvoY - y) * 0.22;
+      ponto.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+      requestAnimationFrame(anda);
+    })();
+    var clicaveis = 'a, .cor, .cartao, .foto, .mock';
+    document.addEventListener('mouseover', function (e) { if (e.target.closest(clicaveis)) ponto.classList.add('grande'); });
+    document.addEventListener('mouseout', function (e) { if (e.target.closest(clicaveis)) ponto.classList.remove('grande'); });
+  }
+
+  /* 4. Luz dourada nos cartões e foto da capa acompanhando o mouse */
+  if (comMouse) {
+    var fotoCapa = document.querySelector('.capa .lado-foto img');
+    var capa = document.querySelector('.capa');
+    document.addEventListener('pointermove', function (e) {
+      var c = e.target.closest('.cartao, .cor');
+      if (c) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      }
+      if (!calmo && fotoCapa && e.target.closest('.capa')) {
+        var rc = capa.getBoundingClientRect();
+        var dx = (e.clientX - rc.left) / rc.width - 0.5;
+        var dy = (e.clientY - rc.top) / rc.height - 0.5;
+        fotoCapa.style.setProperty('--px', (dx * -16).toFixed(1) + 'px');
+        fotoCapa.style.setProperty('--py', (dy * -12).toFixed(1) + 'px');
+      }
+    });
+  }
+
+  /* 5. Clique numa cor pra copiar o código */
+  var aviso = document.querySelector('.aviso');
+  var timer;
+  function avisa(texto) {
+    aviso.innerHTML = texto;
+    aviso.classList.add('mostrando');
+    clearTimeout(timer);
+    timer = setTimeout(function () { aviso.classList.remove('mostrando'); }, 1800);
+  }
+  function copia(texto) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texto);
+    var campo = document.createElement('textarea');
+    campo.value = texto; campo.style.position = 'fixed'; campo.style.opacity = '0';
+    document.body.appendChild(campo); campo.select();
+    try { document.execCommand('copy'); } finally { document.body.removeChild(campo); }
+    return Promise.resolve();
+  }
+  document.querySelectorAll('.cor').forEach(function (cor) {
+    cor.addEventListener('click', function () {
+      var hex = cor.querySelector('.hex').textContent.trim();
+      copia(hex).then(function () { avisa('Copiado: <b>' + hex + '</b>'); }, function () { avisa('Não consegui copiar. O código é <b>' + hex + '</b>'); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
